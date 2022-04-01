@@ -10,15 +10,23 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "commit": "git-cz",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "commitizen": "^4.2.4",
+    "git-cz": "^4.8.0",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   },
   "packageManager": "yarn@1.22.17"
 }
