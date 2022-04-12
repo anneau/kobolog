@@ -5,12 +5,7 @@ import { Card } from "./Card";
 export default {
   title: "Card",
   component: Card,
-  argTypes: {
-    center: {
-      options: [true, false],
-      control: { type: "radio" },
-    },
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = (args) => (
