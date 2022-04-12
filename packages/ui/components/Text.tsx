@@ -3,15 +3,15 @@ import { FC, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  color: "gray" | "white";
-  size: "sm" | "base" | "lg" | "xl" | "2xl";
-  wight: "light" | "normal" | "medium" | "semibold" | "bold";
-  align: "center" | "left" | "right" | "justify";
+  color?: "gray" | "white";
+  size?: "sm" | "base" | "lg" | "xl" | "2xl";
+  wight?: "light" | "normal" | "medium" | "semibold" | "bold";
+  align?: "center" | "left" | "right" | "justify";
 };
 
 export const Text: FC<Props> = ({
   children,
-  color,
+  color = "white",
   size = "base",
   wight = "normal",
   align = "left",
