@@ -8,22 +8,33 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "relay": "relay-compiler"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.33.3",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "ui": "*"
+    "react-relay": "^13.2.0",
+    "ui": "*",
+    "graphql-relay": "*"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
+    "@types/react-relay": "^13.0.2",
     "config": "*",
     "eslint": "8.12.0",
     "next-transpile-modules": "9.0.0",
+    "relay-compiler": "^13.2.0",
     "typescript": "4.6.3"
+  },
+  "relay": {
+    "src": "./",
+    "artifactDirectory": "__generated__",
+    "schema": "../../schema.graphql",
+    "language": "typescript"
   }
 }
