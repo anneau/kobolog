@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4174d819c41742aeaeee242fab9ce1e9>>
+ * @generated SignedSource<<e5bd3847a6becaa302d6ba04efe8c97c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,8 +9,8 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
-export type pages_indexQuery$variables = {};
-export type pages_indexQuery$data = {
+export type query_notesQuery$variables = {};
+export type query_notesQuery$data = {
   readonly notesCollection: {
     readonly edges: ReadonlyArray<{
       readonly node: {
@@ -19,9 +19,9 @@ export type pages_indexQuery$data = {
     }>;
   } | null;
 };
-export type pages_indexQuery = {
-  variables: pages_indexQuery$variables;
-  response: pages_indexQuery$data;
+export type query_notesQuery = {
+  variables: query_notesQuery$variables;
+  response: query_notesQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
@@ -72,7 +72,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "pages_indexQuery",
+    "name": "query_notesQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -81,20 +81,20 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "pages_indexQuery",
+    "name": "query_notesQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "efd421eb946158dee60b1a26f1a59824",
+    "cacheID": "f1c883e4b3d6134bd4c604c605233f9b",
     "id": null,
     "metadata": {},
-    "name": "pages_indexQuery",
+    "name": "query_notesQuery",
     "operationKind": "query",
-    "text": "query pages_indexQuery {\n  notesCollection {\n    edges {\n      node {\n        code\n      }\n    }\n  }\n}\n"
+    "text": "query query_notesQuery {\n  notesCollection {\n    edges {\n      node {\n        code\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "f24009568c9428e513b3189af09f82f7";
+(node as any).hash = "996944c5f5de5e42bffcee8ef4633461";
 
 export default node;
