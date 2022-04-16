@@ -3,7 +3,7 @@ import { useLazyLoadQuery } from "react-relay";
 import { List } from "../../components/notes/List";
 import { query_notesQuery } from "../../__generated__/query_notesQuery.graphql";
 import { query } from "./query";
-export { getServerSideProps } from "./server";
+export { getStaticProps } from "./server";
 
 export const Notes = () => {
   const data = useLazyLoadQuery<query_notesQuery>(query, {});

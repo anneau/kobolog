@@ -1,9 +1,9 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { fetchQuery } from "react-relay";
 import createServerRelayEnvironment from "../../libs/graphql/server";
 import { query } from "./query";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const environment = createServerRelayEnvironment();
   await fetchQuery(
     environment,
