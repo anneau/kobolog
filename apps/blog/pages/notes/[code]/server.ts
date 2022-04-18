@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { fetchQuery } from "react-relay";
 import createServerRelayEnvironment from "../../../libs/graphql/server";
 import { query_NoteCodesQuery } from "../../../__generated__/query_NoteCodesQuery.graphql";
-import { query_NoteDetalQuery } from "../../../__generated__/query_NoteDetalQuery.graphql";
+import { query_NoteDetailQuery } from "../../../__generated__/query_NoteDetailQuery.graphql";
 import { codesQuery, detailQuery } from "./query";
 
 export const getStaticPaths = async () => {
@@ -16,10 +16,13 @@ export const getStaticPaths = async () => {
       fetchPolicy: "network-only",
     }
   ).toPromise();
-  const codes = data?.notesCollection?.edges.map(({ node }) => node?.code);
+  const paths = data?.notesCollection?.edges.map(({ node }) => ({
+    params: { code: node?.code },
+  }));
+
   return {
-    paths: [{ params: codes }],
-    fallback: true, // false or 'blocking'
+    paths,
+    fallback: true,
   };
 };
 
@@ -30,7 +33,7 @@ export const getStaticProps = async ({
 }: GetStaticPropsContext<Params>) => {
   const code = params?.code ?? ""; // TODO: エラーハンドリング
   const environment = createServerRelayEnvironment();
-  await fetchQuery<query_NoteDetalQuery>(
+  await fetchQuery<query_NoteDetailQuery>(
     environment,
     detailQuery,
     { code },

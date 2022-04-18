@@ -13,7 +13,7 @@ export const codesQuery = graphql`
 `;
 
 export const detailQuery = graphql`
-  query query_NoteDetalQuery($code: String!) {
+  query query_NoteDetailQuery($code: String!) {
     notesCollection(first: 1, filter: { code: { eq: $code } }) {
       edges {
         node {

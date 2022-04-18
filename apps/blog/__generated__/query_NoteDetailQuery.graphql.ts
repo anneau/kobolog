@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7902b284c19aeaba5d6ecee7c33f7154>>
+ * @generated SignedSource<<8b4e96d0397454d312fbeb57df571239>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,10 +10,10 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type query_NoteDetalQuery$variables = {
+export type query_NoteDetailQuery$variables = {
   code: string;
 };
-export type query_NoteDetalQuery$data = {
+export type query_NoteDetailQuery$data = {
   readonly notesCollection: {
     readonly edges: ReadonlyArray<{
       readonly node: {
@@ -22,9 +22,9 @@ export type query_NoteDetalQuery$data = {
     }>;
   } | null;
 };
-export type query_NoteDetalQuery = {
-  variables: query_NoteDetalQuery$variables;
-  response: query_NoteDetalQuery$data;
+export type query_NoteDetailQuery = {
+  variables: query_NoteDetailQuery$variables;
+  response: query_NoteDetailQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
@@ -64,7 +64,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "query_NoteDetalQuery",
+    "name": "query_NoteDetailQuery",
     "selections": [
       {
         "alias": null,
@@ -112,7 +112,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "query_NoteDetalQuery",
+    "name": "query_NoteDetailQuery",
     "selections": [
       {
         "alias": null,
@@ -192,16 +192,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cfdc655c4f13dc863b48319eb1be9830",
+    "cacheID": "686670bdea7120a5a709e42fb220174c",
     "id": null,
     "metadata": {},
-    "name": "query_NoteDetalQuery",
+    "name": "query_NoteDetailQuery",
     "operationKind": "query",
-    "text": "query query_NoteDetalQuery(\n  $code: String!\n) {\n  notesCollection(first: 1, filter: {code: {eq: $code}}) {\n    edges {\n      node {\n        ...Detail_NoteDetailFragment\n      }\n    }\n  }\n}\n\nfragment Detail_NoteDetailFragment on notes {\n  title\n  code\n  body\n  icon\n  created_at\n  published_at\n}\n"
+    "text": "query query_NoteDetailQuery(\n  $code: String!\n) {\n  notesCollection(first: 1, filter: {code: {eq: $code}}) {\n    edges {\n      node {\n        ...Detail_NoteDetailFragment\n      }\n    }\n  }\n}\n\nfragment Detail_NoteDetailFragment on notes {\n  title\n  code\n  body\n  icon\n  created_at\n  published_at\n}\n"
   }
 };
 })();
 
-(node as any).hash = "bb98fbc0c2d8643f2e79553c75056a40";
+(node as any).hash = "5d7a63c7631647550d28ffd89c4cf20f";
 
 export default node;

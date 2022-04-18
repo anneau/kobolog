@@ -1,4 +1,5 @@
-import React, { VFC } from "react";
+import Link from "next/link";
+import { VFC } from "react";
 import { graphql, useFragment } from "react-relay";
 import { List_notesListFragment$key } from "../../__generated__/List_notesListFragment.graphql";
 import { Item } from "./Item";
@@ -27,7 +28,17 @@ export const List: VFC<Props> = ({ fragmentRef }) => {
   return (
     <ul>
       {nodes.map((node) =>
-        node != null ? <Item fragmentRef={node} key={node?.code} /> : null
+        node != null && node.code ? (
+          <Link
+            href={`/notes/${encodeURIComponent(node.code)}`}
+            passHref
+            key={node?.code}
+          >
+            <a>
+              <Item fragmentRef={node} />
+            </a>
+          </Link>
+        ) : null
       )}
     </ul>
   );
