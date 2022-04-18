@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<125f18449113f2ad1718b5a73216abd3>>
+ * @generated SignedSource<<8b4e96d0397454d312fbeb57df571239>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,40 +10,65 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type query_notesQuery$variables = {};
-export type query_notesQuery$data = {
+export type query_NoteDetailQuery$variables = {
+  code: string;
+};
+export type query_NoteDetailQuery$data = {
   readonly notesCollection: {
     readonly edges: ReadonlyArray<{
       readonly node: {
-        readonly code: string | null;
+        readonly " $fragmentSpreads": FragmentRefs<"Detail_NoteDetailFragment">;
       } | null;
     }>;
-    readonly " $fragmentSpreads": FragmentRefs<"List_notesListFragment">;
   } | null;
 };
-export type query_notesQuery = {
-  variables: query_notesQuery$variables;
-  response: query_notesQuery$data;
+export type query_NoteDetailQuery = {
+  variables: query_NoteDetailQuery$variables;
+  response: query_NoteDetailQuery$data;
 };
 
 const node: ConcreteRequest = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "code",
-  "storageKey": null
-};
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "code"
+  }
+],
+v1 = [
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "kind": "Variable",
+            "name": "eq",
+            "variableName": "code"
+          }
+        ],
+        "kind": "ObjectValue",
+        "name": "code"
+      }
+    ],
+    "kind": "ObjectValue",
+    "name": "filter"
+  },
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 1
+  }
+];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "query_notesQuery",
+    "name": "query_NoteDetailQuery",
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v1/*: any*/),
         "concreteType": "notesConnection",
         "kind": "LinkedField",
         "name": "notesCollection",
@@ -65,17 +90,16 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v0/*: any*/)
+                  {
+                    "args": null,
+                    "kind": "FragmentSpread",
+                    "name": "Detail_NoteDetailFragment"
+                  }
                 ],
                 "storageKey": null
               }
             ],
             "storageKey": null
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "List_notesListFragment"
           }
         ],
         "storageKey": null
@@ -86,13 +110,13 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "query_notesQuery",
+    "name": "query_NoteDetailQuery",
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v1/*: any*/),
         "concreteType": "notesConnection",
         "kind": "LinkedField",
         "name": "notesCollection",
@@ -114,12 +138,39 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v0/*: any*/),
                   {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
                     "name": "title",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "code",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "body",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "icon",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "created_at",
                     "storageKey": null
                   },
                   {
@@ -141,16 +192,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "665e3b985500c259f96aa656dde21a74",
+    "cacheID": "686670bdea7120a5a709e42fb220174c",
     "id": null,
     "metadata": {},
-    "name": "query_notesQuery",
+    "name": "query_NoteDetailQuery",
     "operationKind": "query",
-    "text": "query query_notesQuery {\n  notesCollection {\n    edges {\n      node {\n        code\n      }\n    }\n    ...List_notesListFragment\n  }\n}\n\nfragment Item_notesItemFragment on notes {\n  title\n  published_at\n}\n\nfragment List_notesListFragment on notesConnection {\n  edges {\n    node {\n      code\n      ...Item_notesItemFragment\n    }\n  }\n}\n"
+    "text": "query query_NoteDetailQuery(\n  $code: String!\n) {\n  notesCollection(first: 1, filter: {code: {eq: $code}}) {\n    edges {\n      node {\n        ...Detail_NoteDetailFragment\n      }\n    }\n  }\n}\n\nfragment Detail_NoteDetailFragment on notes {\n  title\n  code\n  body\n  icon\n  created_at\n  published_at\n}\n"
   }
 };
 })();
 
-(node as any).hash = "551a470fe98f6a337c8ad9ff3c2a5c6a";
+(node as any).hash = "5d7a63c7631647550d28ffd89c4cf20f";
 
 export default node;
